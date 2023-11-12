@@ -38,7 +38,7 @@ class _SignInScreenState extends State<SignInScreen> {
             key: _formKey,
             child: Column(
               children: [
-                const SizedBox(height: 100),
+                const SizedBox(height: 50),
                 CustomTextFormField(
                   hintText: "Nickname",
                   controller: nicknameController,

@@ -109,8 +109,6 @@ class _CalculatorViewState extends State<CalculatorView> {
                                   textAlign: TextAlign.left,
                                   style: const TextStyle(
                                       color: Colors.white, fontSize: 80))),
-                          const Icon(Icons.more_vert,
-                              color: Colors.orange, size: 30),
                           const SizedBox(width: 20),
                         ],
                       ),

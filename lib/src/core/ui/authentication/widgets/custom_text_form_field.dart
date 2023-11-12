@@ -15,7 +15,7 @@ class CustomTextFormField extends StatelessWidget {
     Key? key,
     required this.hintText,
     required this.controller,
-     this.inputFormatters,
+    this.inputFormatters,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
     this.suffixIcon,
@@ -27,31 +27,46 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
-        color: Colors.grey,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: TextFormField(
-          controller: controller,
-          keyboardType: keyboardType,
-          inputFormatters: inputFormatters,
-          obscureText: obscureText,
-          decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(vertical: 15.0),
-            border: InputBorder.none,
-            hintText: hintText,
-            suffixIcon: suffixIcon != null ? InkWell(
-              onTap: onSuffixIconPressed,
-              child: suffixIcon,
-            ) : null,
-            hintStyle: const TextStyle(fontSize: 16),
-            errorStyle: const TextStyle(height: 0.001),
-            alignLabelWithHint: true,
+      child: TextFormField(
+        controller: controller,
+        keyboardType: keyboardType,
+        inputFormatters: inputFormatters,
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20),
+          border: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.greenAccent, width: 2.0),
+            borderRadius: BorderRadius.circular(12),
           ),
-          validator: validator,
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.greenAccent, width: 2.0),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.greenAccent, width: 2.0),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red.shade300, width: 1.0),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            // Граница при фокусе и наличии ошибки
+            borderSide: BorderSide(color: Colors.red.shade500, width: 2.0),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          errorStyle: TextStyle(
+            color: Colors.red.shade300,
+            fontSize: 14,
+          ),
+          hintText: hintText,
+          suffixIcon: suffixIcon != null
+              ? InkWell(onTap: onSuffixIconPressed, child: suffixIcon)
+              : null,
+          hintStyle: const TextStyle(fontSize: 16),
         ),
+        validator: validator,
       ),
     );
   }

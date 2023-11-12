@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../services/weather/weather_service.dart';
 import '../authentication/widgets/custom_elevated_button.dart';
+import '../welcome/welcome_eugene.dart';
 
 class WeatherReport extends StatefulWidget {
   const WeatherReport({Key? key}) : super(key: key);
@@ -50,6 +51,18 @@ class _WeatherReportState extends State<WeatherReport> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const WelcomeEugene()),
+            );
+          },
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
